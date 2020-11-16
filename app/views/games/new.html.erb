@@ -1,0 +1,15 @@
+<h1>********* Welcome to the longest word-game! *********</h1>
+<h2>Here is your grid:</h2>
+<h2> <% @letters.each do |letter| %>
+  <%= letter %>
+<% end %>
+</h2>
+
+<h2>*****************************************************</h2>
+<h2>What is your longest word?</h2>
+<form action="/score" method="post">
+  <input type="text" name="word" placeholder="Guess the word">
+  <input type="hidden" name="hidden" value=<%=@letters.join%>>
+  <input type="submit" value="Guess!">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+</form>
